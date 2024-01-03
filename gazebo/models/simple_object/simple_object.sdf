@@ -1,0 +1,48 @@
+<?xml version='1.0'?>
+<sdf version="1.5">
+  <model name="simple_object">
+    <!-- This is the initial pose of the object, it can 
+          be overriden by the world that includes this model. -->
+    <pose>0.0 0.0 0.0 0.0 0.0 0.0</pose>
+    <!-- If the static option is true, the object will not move  -->
+    <static>true</static>
+    <link name="link">
+      <!-- The inertia information specify how the object will accelerate 
+           and move depending on the applied forces. However, this parameters
+           are ignored if the static option is set to true and the object is fixed. 
+           For more info on inertia, check the official Gazebo docs at 
+           http://gazebosim.org/tutorials?tut=inertia&cat=build_robot -->
+      <inertial>
+        <mass>1.0</mass>
+        <inertia> 
+          <ixx>0.1</ixx>
+          <ixy>0.0</ixy>
+          <ixz>0.0</ixz>
+          <iyy>0.1</iyy>
+          <iyz>0.0</iyz> 
+          <izz>0.1</izz> 
+        </inertia>
+      </inertial>
+      <!-- The collision element specifies the shape of the object 
+           that will be used for computing the physical collisions
+           of the object. -->
+      <collision name="collision">
+        <geometry>
+          <mesh>
+            <uri>model://simple_object/simple_object.stl</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <!-- The visual element specifies the shape of the object 
+           that will be used for simulating the visual apparence
+           of the object for visualization and cameras. -->
+      <visual name="visual">
+        <geometry>
+          <mesh>
+            <uri>model://simple_object/simple_object.stl</uri>
+          </mesh>       
+        </geometry>
+      </visual>
+    </link>
+  </model>
+</sdf>
